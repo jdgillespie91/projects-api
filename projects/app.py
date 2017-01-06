@@ -32,6 +32,15 @@ class ProjectsResource(object):
         resp.body = json.dumps(response)
 
 
+class HealthcheckResource(object):
+    def on_get(self, req, resp):
+        pass
+
+
 app = falcon.API()
+
 projects = ProjectsResource()
 app.add_route('/projects', projects)
+
+healthcheck = HealthcheckResource()
+app.add_route('/', healthcheck)
