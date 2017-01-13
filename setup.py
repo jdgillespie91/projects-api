@@ -9,8 +9,6 @@ setup(
     author_email='jdgillepsie91@gmail.com',
     zip_safe=True,
     classifiers=[
-        "Private :: Don't upload",
-        'Development Status :: 3 - Alpha',
         'Intended Audience :: Developers',
         'Topic :: Software Development',
         'Programming Language :: Python :: 3',
