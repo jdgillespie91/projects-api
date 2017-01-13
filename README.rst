@@ -29,7 +29,7 @@ First is the *dev* environmenet
 
     $ ./bin/run-dev.sh
 
-Features include mounted source code and hot reloading, meaning you can edit the source locally and the changes will be immediately available in the containerised app.
+Features include mounted source code and hot reloading, meaning any local changes will be immediately available in the containerised app.
 
 Next is the *ci* environment
 
@@ -38,3 +38,5 @@ Next is the *ci* environment
     $ ./bin/run-ci.sh
 
 Features include an isolated distribution build and installation, meaning the running app will have a corresponding wheel that can be used in more production-like environments if appropriate.
+
+The intention is to, at a later date, add builds for *qa*, *staging* and *production*.
