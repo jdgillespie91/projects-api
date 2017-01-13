@@ -9,6 +9,7 @@ Usage
 .. code-block:: bash
 
     $ curl projects.jakegillespie.me
+    "Hello, world!"
 
 Development
 -----------
