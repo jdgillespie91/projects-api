@@ -1,9 +1,10 @@
 #!/bin/bash
 
-PROJECT_ENV=ci
+PROJECT_ENV=qa
 
 docker run \
     -d \
+    -e PROJECT_ENV=$PROJECT_ENV \
     -l $PROJECT_ENV \
     -p 8002:8000 \
     -v $PWD/bin:/workspace/bin \

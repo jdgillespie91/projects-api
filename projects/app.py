@@ -1,6 +1,9 @@
 import json
+import os
 
 import falcon
+
+from projects import __version__
 
 
 response = [
@@ -32,13 +35,17 @@ class ProjectsResource(object):
 
 class HealthcheckResource(object):
     def on_get(self, req, resp):
+        env = os.environ.get('PROJECT_ENV', 'prod')
+        version = __version__
+
+        resp.append_header('Version', f'{env}-{version}')
         resp.body = json.dumps('Hello, world!')
 
 
 app = falcon.API()
 
-projects = ProjectsResource()
-app.add_route('/projects', projects)
+projects_resource = ProjectsResource()
+app.add_route('/projects', projects_resource)
 
 healthcheck = HealthcheckResource()
 app.add_route('/', healthcheck)

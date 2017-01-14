@@ -4,6 +4,7 @@ PROJECT_ENV=ci
 
 docker run \
     -d \
+    -e PROJECT_ENV=$PROJECT_ENV \
     -l $PROJECT_ENV \
     -p 8001:8000 \
     -v $PWD/bin:/workspace/bin \

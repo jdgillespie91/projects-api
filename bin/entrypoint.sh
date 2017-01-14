@@ -25,7 +25,25 @@ function ci {
     pip install dist/*
     cd /
 
-    gunicorn projects.app:app --bind 0.0.0.0:8000 --reload
+    gunicorn projects.app:app --bind 0.0.0.0:8000
+}
+
+function qa {
+    # In qa mode, we replicate the ci environment for now whilst we figure
+    # out a good deployment pattern.
+    ci
+}
+
+function staging {
+    # In staging mode, we replicate the ci environment for now whilst we figure
+    # out a good deployment pattern.
+    ci
+}
+
+function prod {
+    # In prod mode, we replicate the ci environment for now whilst we figure
+    # out a good deployment pattern.
+    ci
 }
 
 
@@ -33,6 +51,9 @@ function main {
     case "$1" in
         dev ) dev ;;
         ci ) ci ;;
+        qa ) qa ;;
+        staging ) staging ;;
+        prod ) prod ;;
     esac
 }
 
