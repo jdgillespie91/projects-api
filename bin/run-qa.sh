@@ -5,7 +5,7 @@ PROJECT_ENV=ci
 docker run \
     -d \
     -l $PROJECT_ENV \
-    -p 8001:8000 \
+    -p 8002:8000 \
     -v $PWD/bin:/workspace/bin \
     -v $PWD/projects:/workspace/projects \
     -v $PWD/setup.py:/workspace/setup.py \
