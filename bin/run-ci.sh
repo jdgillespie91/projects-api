@@ -13,5 +13,6 @@ docker run \
     -v $PWD/setup.cfg:/workspace/setup.cfg \
     -w /workspace \
     --entrypoint /workspace/bin/entrypoint.sh \
+    --name $PROJECT_ENV \
     python:latest \
     $PROJECT_ENV  # Pass $PROJECT_ENV to entrypoint.
