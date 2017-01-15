@@ -2,9 +2,12 @@ import json
 import os
 
 import falcon
+from falcon_cors import CORS
 
 from projects import __version__
 
+
+cors = CORS(allow_all_origins=True)
 
 response = [
     {
@@ -42,7 +45,7 @@ class HealthcheckResource(object):
         resp.body = json.dumps('Hello, world!')
 
 
-app = falcon.API()
+app = falcon.API(middleware=[cors.middleware])
 
 projects_resource = ProjectsResource()
 app.add_route('/projects', projects_resource)
