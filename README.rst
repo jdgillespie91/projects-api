@@ -11,40 +11,54 @@ Usage
     $ curl projects.jakegillespie.me
     "Hello, world!"
 
+Running the app
+---------------
+
+*Note that Docker is a prerequisite*
+
+Pull the latest image with
+
+.. code-block:: bash
+
+    $ docker pull jdgillespie91/jakegillespie.me/projects-0.1.0:latest
+
+Alternatively, build the application locally with
+
+.. code-block:: bash
+
+    $ ./bin/build.sh
+
+Start the container with
+
+.. code-block:: bash
+
+    $ ./bin/run-local.sh
+
+The app will be exposed on port 8001.
+
+.. code-block:: bash
+
+    $ curl localhost:8001
+    "Hello, world!"
+
+To run with *ci*, *qa*, *staging* or *prod* configurations, use the following. Note that these apps will be exposed on port 8002, 8003, 8004 and 8005 respectively.
+
+.. code-block:: bash
+
+    $ ./bin/run-ci.sh
+    $ ./bin/run-qa.sh
+    $ ./bin/run-staging.sh
+    $ ./bin/run-prod.sh
+
 Development
 -----------
 
 *Note that Docker is a prerequisite*
 
-It's possible to run the app in multiple configurations.
-
-.. code-block:: bash
-
-    $ curl localhost:<port>
-    "Hello, world!"
-    
-First is the *dev* environment which runs by default on port 8000.
+Run the application in development mode with
 
 .. code-block:: bash
 
     $ ./bin/run-dev.sh
 
-Features include mounted source code and hot reloading, meaning any local changes will be immediately available in the containerised app.
-
-Next is the *ci* environment which runs on port 8001.
-
-.. code-block:: bash
-
-    $ ./bin/run-ci.sh
-
-Features include an isolated distribution build and installation, meaning the running app will have a corresponding wheel that can be used in more production-like environments if appropriate.
-
-Additionally, we have the *qa*, *staging* and *production* environments. These run on ports 8002, 8003 and 8004 respectively.
-
-.. code-block:: bash
-
-    $ ./bin/run-qa.sh
-    $ ./bin/run-staging.sh
-    $ ./bin/run-prod.sh
-
-Note that the features included here are identical to those in the *ci* environment. The intention is to, at a later date, configure these such that they have a better deployment process.
+The app will be exposed on port 8000. Features include mounted source code and hot reloading, meaning any local changes will be immediately available in the containerised app.

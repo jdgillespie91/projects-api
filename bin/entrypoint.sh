@@ -28,17 +28,20 @@ function ci {
     gunicorn projects.app:app --bind 0.0.0.0:8000
 }
 
+
 function qa {
     # In qa mode, we replicate the ci environment for now whilst we figure
     # out a good deployment pattern.
     ci
 }
 
+
 function staging {
     # In staging mode, we replicate the ci environment for now whilst we figure
     # out a good deployment pattern.
     ci
 }
+
 
 function prod {
     # In prod mode, we replicate the ci environment for now whilst we figure

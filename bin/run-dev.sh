@@ -1,5 +1,8 @@
 #!/bin/bash
 
+set -e
+set -x
+
 PROJECT_ENV=dev
 
 docker run \
