@@ -22,12 +22,6 @@ Pull the latest image with
 
     $ docker pull jdgillespie91/jakegillespie.me/projects-0.1.0:latest
 
-Alternatively, build the application locally with
-
-.. code-block:: bash
-
-    $ ./bin/build.sh
-
 Start the container with
 
 .. code-block:: bash
