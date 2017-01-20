@@ -11,8 +11,8 @@ Usage
     $ curl projects.jakegillespie.me
     "Hello, world!"
 
-Running the app
----------------
+Running the application
+-----------------------
 
 *Note that Docker is a prerequisite*
 
@@ -22,27 +22,27 @@ Pull the latest image with
 
     $ docker pull jdgillespie91/jakegillespie.me/projects-0.1.0:latest
 
-Start the container with
+Run the image with
 
 .. code-block:: bash
 
-    $ ./bin/run-local.sh
+    $ docker run -d jdgillespie91/jakegillespie.me/projects-0.1.0:latest local
 
-The app will be exposed on port 8001.
+This will expose the app on a random port (determine which with `docker ps`). Verify the app is running with
 
 .. code-block:: bash
 
-    $ curl localhost:8001
+    $ curl localhost:<port>
     "Hello, world!"
 
-To run with *ci*, *qa*, *staging* or *prod* configurations, use the following. Note that these apps will be exposed on port 8002, 8003, 8004 and 8005 respectively.
+It's possible to run the application with its *ci*, *qa*, *staging* or *prod* configurations using the following
 
 .. code-block:: bash
 
-    $ ./bin/run-ci.sh
-    $ ./bin/run-qa.sh
-    $ ./bin/run-staging.sh
-    $ ./bin/run-prod.sh
+    $ docker run -d projects-api:0.1.0-latest ci
+    $ docker run -d projects-api:0.1.0-latest qa
+    $ docker run -d projects-api:0.1.0-latest staging
+    $ docker run -d projects-api:0.1.0-latest prod
 
 Development
 -----------
@@ -53,6 +53,6 @@ Run the application in development mode with
 
 .. code-block:: bash
 
-    $ ./bin/run-dev.sh
+    $ ./bin/run.sh
 
 The app will be exposed on port 8000. Features include mounted source code and hot reloading, meaning any local changes will be immediately available in the containerised app.

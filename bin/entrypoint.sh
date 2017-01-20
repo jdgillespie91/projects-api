@@ -6,53 +6,48 @@ set -x
 
 
 function dev {
-    # In dev mode, we're happy to use the source code as the project source.
-    # Hence, we're happy to remain in the project directory.
-
+    # In development mode, we want to use the source code as the project 
+    # source. This enables hot reloading of the application.
+    export PROJECT_ENV=dev
     pip install -e .
-
     gunicorn projects.app:app --bind 0.0.0.0:8000 --reload
 }
 
 
+function local {
+    export PROJECT_ENV=local
+    gunicorn projects.app:app --bind 0.0.0.0:8000
+}
+
+
 function ci {
-    # In ci mode, we want to ensure we're using the packaged version of the
-    # app. Hence, we prepare the distribution, install it, then cd to root to
-    # ensure we're using the installed app rather than the source code.
-
-    pip install --upgrade pip setuptools wheel
-    python setup.py bdist_wheel
-    pip install dist/*
-    cd /
-
+    export PROJECT_ENV=ci
     gunicorn projects.app:app --bind 0.0.0.0:8000
 }
 
 
 function qa {
-    # In qa mode, we replicate the ci environment for now whilst we figure
-    # out a good deployment pattern.
-    ci
+    export PROJECT_ENV=qa
+    gunicorn projects.app:app --bind 0.0.0.0:8000
 }
 
 
 function staging {
-    # In staging mode, we replicate the ci environment for now whilst we figure
-    # out a good deployment pattern.
-    ci
+    export PROJECT_ENV=staging
+    gunicorn projects.app:app --bind 0.0.0.0:8000
 }
 
 
 function prod {
-    # In prod mode, we replicate the ci environment for now whilst we figure
-    # out a good deployment pattern.
-    ci
+    export PROJECT_ENV=prod
+    gunicorn projects.app:app --bind 0.0.0.0:8000
 }
 
 
 function main {
     case "$1" in
         dev ) dev ;;
+        local ) local ;;
         ci ) ci ;;
         qa ) qa ;;
         staging ) staging ;;
