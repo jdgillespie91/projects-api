@@ -26,7 +26,7 @@ Run the image with
 
 .. code-block:: bash
 
-    $ docker run -d jdgillespie91/jakegillespie.me/projects-0.1.0:latest local
+    $ docker run -v ~/.aws:~/.aws -d jdgillespie91/jakegillespie.me/projects-0.1.0:latest local
 
 This will expose the app on a random port (determine which with `docker ps`). Verify the app is running with
 
@@ -39,17 +39,17 @@ It's possible to run the application with its *ci*, *qa*, *staging* or *prod* co
 
 .. code-block:: bash
 
-    $ docker run -d projects-api:0.1.0-latest ci
-    $ docker run -d projects-api:0.1.0-latest qa
-    $ docker run -d projects-api:0.1.0-latest staging
-    $ docker run -d projects-api:0.1.0-latest prod
+    $ docker run -v ~/.aws:~/.aws -d projects-api:0.1.0-latest ci
+    $ docker run -v ~/.aws:~/.aws -d projects-api:0.1.0-latest qa
+    $ docker run -v ~/.aws:~/.aws -d projects-api:0.1.0-latest staging
+    $ docker run -v ~/.aws:~/.aws -d projects-api:0.1.0-latest prod
 
 Development
 -----------
 
 *Note that Docker is a prerequisite*
 
-Run the application in development mode with
+Clone the repository, then run the application in development mode with
 
 .. code-block:: bash
 

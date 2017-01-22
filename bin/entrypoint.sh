@@ -16,6 +16,17 @@ function run_dev {
 }
 
 
+function setup_test {
+    setup test
+    pip install pytest
+}
+
+
+function run_test {
+    pytest tests/
+}
+
+
 function setup {
     aws s3 cp s3://settings-$1/settings.sh /tmp/settings.sh
     source /tmp/settings.sh
@@ -35,6 +46,11 @@ function main {
             # project source. This enables hot reloading of the application.
             setup_dev
             run_dev
+            ;;
+        test )
+            # In test mode, we don't run the app. We only invoke the tests.
+            setup_test
+            run_test
             ;;
         local )
             setup $1
