@@ -9,8 +9,10 @@ PROJECT_ENV=test
 
 
 # Some debug statements
-echo $USER
-echo $(which docker)
+echo "User: $USER"
+echo "Docker path: $(which docker)"
+echo "Working directory: $PWD"
+echo "Git revision: $(git log --oneline -n 1)"
 
 
 docker rm $PROJECT_ENV || true
