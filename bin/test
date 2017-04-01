@@ -8,6 +8,7 @@ set -x
 PROJECT_ENV=test
 
 
+docker rm $PROJECT_ENV || true
 docker run \
     -e PROJECT_ENV=$PROJECT_ENV \
     -l $PROJECT_ENV \
