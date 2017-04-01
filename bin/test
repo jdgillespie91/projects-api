@@ -8,6 +8,10 @@ set -x
 PROJECT_ENV=test
 
 
+# Some debug statements
+echo $USER
+
+
 docker rm $PROJECT_ENV || true
 docker run \
     -e PROJECT_ENV=$PROJECT_ENV \
