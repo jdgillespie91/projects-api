@@ -15,8 +15,8 @@ echo "Working directory: $PWD"
 echo "Git revision: $(git log --oneline -n 1)"
 
 
-sudo docker rm $PROJECT_ENV || true
-sudo docker run \
+docker rm $PROJECT_ENV || true
+docker run \
     -e PROJECT_ENV=$PROJECT_ENV \
     -l $PROJECT_ENV \
     -v $PWD:/workspace \
