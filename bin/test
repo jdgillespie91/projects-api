@@ -10,6 +10,7 @@ PROJECT_ENV=test
 
 # Some debug statements
 echo $USER
+echo $(which docker)
 
 
 docker rm $PROJECT_ENV || true
