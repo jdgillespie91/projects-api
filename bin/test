@@ -8,13 +8,6 @@ set -x
 PROJECT_ENV=test
 
 
-# Some debug statements
-echo "User: $USER"
-echo "Docker path: $(which docker)"
-echo "Working directory: $PWD"
-echo "Git revision: $(git log --oneline -n 1)"
-
-
 docker rm $PROJECT_ENV || true
 docker run \
     -e PROJECT_ENV=$PROJECT_ENV \
