@@ -7,6 +7,6 @@ set -x
 
 docker build \
     -f bin/Dockerfile \
-    -t projects-api:0.1.0-latest \
+    -t projects-api:latest \
     .
 

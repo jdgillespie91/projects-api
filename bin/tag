@@ -1,0 +1,14 @@
+#!/bin/bash
+
+
+set -e
+set -x
+
+
+VERSION=$1
+
+
+docker tag \
+    projects-api:latest \
+    projects-api:$VERSION
+
