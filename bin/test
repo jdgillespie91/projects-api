@@ -14,7 +14,7 @@ docker run \
     -l $PROJECT_ENV \
     -v $PWD:/workspace \
     -w /workspace \
-    --entrypoint /workspace/bin/entrypoint.sh \
+    --entrypoint /workspace/bin/entrypoint \
     --name $PROJECT_ENV \
     python:latest \
     $PROJECT_ENV
