@@ -38,7 +38,7 @@ class ProjectsResource(object):
 
 class HealthcheckResource(object):
     def on_get(self, req, resp):
-        env = os.environ.get('PROJECT_ENV', 'prod')
+        env = os.environ.get('PROJECT_ENV', 'local')
         version = __version__
 
         resp.append_header('Version', f'{env}-{version}')
