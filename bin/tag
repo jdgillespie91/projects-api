@@ -10,5 +10,5 @@ VERSION=$1
 
 docker tag \
     projects-api:latest \
-    projects-api:$VERSION
+    jdgillespie92/projects:$VERSION
 
