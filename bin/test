@@ -16,5 +16,5 @@ docker run \
     -w /workspace \
     --entrypoint /workspace/bin/entrypoint \
     --name $PROJECT_ENV \
-    python:latest \
+    python:slim \
     $PROJECT_ENV
