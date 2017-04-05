@@ -5,7 +5,7 @@ set -e
 set -x
 
 
-PROJECT_ENV=test
+PROJECT_ENV=ci
 
 
 docker rm $PROJECT_ENV || true

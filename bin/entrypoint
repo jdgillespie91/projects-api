@@ -5,20 +5,20 @@ set -e
 set -x
 
 
-function dev {
+function run-dev {
     pip install -e .
     gunicorn projects.app:app --bind 0.0.0.0:8000 --reload
 }
 
 
-function tests {
+function run-ci {
     pip install -e .
     pip install pytest
     pytest tests
 }
 
 
-function run {
+function run-prod {
     gunicorn projects.app:app --bind 0.0.0.0:8000
 }
 
@@ -26,13 +26,13 @@ function run {
 function main {
     case "$1" in
         dev )
-            dev
+            run-dev
             ;;
-        tests )
-            tests
+        ci )
+            run-ci
             ;;
-        run )
-            run
+        prod )
+            run-prod
             ;;
     esac
 }
