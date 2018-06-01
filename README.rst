@@ -30,9 +30,20 @@ Prepare a release with
 
     $ ./bin/build
 
-Deploy the release with
+Deploy this release locally for testing purposes with
 
 .. code-block:: bash
 
-    $ ./bin/deploy
+    $ ./bin/deploy local $(git rev-parse --short HEAD)
+
+Deployment
+----------
+
+Deploy a version (denoted by the seven-character version of the git hash) with
+
+.. code-block:: bash
+
+    $ ./bin/deploy <environment> <version>
+
+where environment is one of *local*, *staging* or *prod*.
 

@@ -1,0 +1,39 @@
+#!/bin/bash
+
+set -e
+set -x
+
+pull () {
+  version=$1
+
+  docker pull jdgillespie91/projects:$version
+}
+
+run () {
+  env=$1
+  port=$2
+  version=$3
+
+  docker run \
+    -d \
+    -e PROJECT_ENV=$env \
+    -p $port:8000 \
+    jdgillespie91/projects:$version
+}
+
+main () {
+  env=$1
+  version=$2
+
+  case "$env" in
+    "staging" ) pull $version && run $env "8003" $version ;;
+    "prod" ) pull $version && run $env "8004" $version ;;
+    * ) pull $version && run "local" "8000" $version ;;
+  esac
+}
+
+env=$1
+version=$2
+
+main $env $version
+
