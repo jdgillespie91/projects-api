@@ -8,7 +8,7 @@ Usage
 
 .. code-block:: bash
 
-    $ curl projects.jakegillespie.me
+    $ curl -L projects.jakegillespie.me
     "Hello, world!"
 
 Development
@@ -23,4 +23,16 @@ Start the application in development mode with
     $ ./bin/start
     $ curl localhost:8000
     "Hello, world!"
+
+Prepare a release with
+
+.. code-block:: bash
+
+    $ ./bin/build
+
+Deploy the release with
+
+.. code-block:: bash
+
+    $ ./bin/deploy
 

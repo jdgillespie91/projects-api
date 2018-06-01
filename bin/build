@@ -1,12 +1,20 @@
 #!/bin/bash
 
-
 set -e
 set -x
 
+docker run \
+  -v $PWD:/workspace \
+  -w /workspace \
+  -it \
+  python:3.6-alpine sh -c \
+  "python setup.py bdist_wheel"
 
 docker build \
-    -f bin/Dockerfile \
-    -t projects-api:latest \
-    .
+  -f bin/Dockerfile \
+  -t jdgillespie91/projects:$(git rev-parse --short=8 HEAD) \
+  .
+
+docker login
+docker push jdgillespie91/projects:$(git rev-parse --short=8 HEAD)
 

@@ -1,16 +1,9 @@
-FROM python:slim
+FROM python:3.6-alpine
 
 WORKDIR /workspace
 
-COPY projects /workspace/projects
-COPY setup.py /workspace/setup.py
-COPY setup.cfg /workspace/setup.cfg
+COPY dist/* .
+RUN pip install *
 
-RUN pip install --upgrade pip setuptools wheel
-RUN python setup.py bdist_wheel
-RUN pip install dist/*
-
-RUN rm -r /workspace
-
-COPY bin/entrypoint /entrypoint
 ENTRYPOINT ["/entrypoint"]
+
