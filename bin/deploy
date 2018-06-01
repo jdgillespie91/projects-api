@@ -28,7 +28,7 @@ main () {
   case "$env" in
     "staging" ) pull $version && run $env "8003" $version ;;
     "prod" ) pull $version && run $env "8004" $version ;;
-    * ) pull $version && run "local" "8000" $version ;;
+    * ) pull $version && run "local" "8001" $version ;;
   esac
 }
 

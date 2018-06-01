@@ -24,6 +24,9 @@ Start the application in development mode with
     $ curl localhost:8000
     "Hello, world!"
 
+Deployment
+----------
+
 Prepare a release with
 
 .. code-block:: bash
@@ -35,11 +38,10 @@ Deploy this release locally for testing purposes with
 .. code-block:: bash
 
     $ ./bin/deploy local $(git rev-parse --short HEAD)
+    $ curl localhost:8001
+    "Hello, world!"
 
-Deployment
-----------
-
-Deploy a version (denoted by the seven-character version of the git hash) with
+In general, deploy with
 
 .. code-block:: bash
 
