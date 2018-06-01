@@ -5,5 +5,5 @@ WORKDIR /workspace
 COPY dist/* .
 RUN pip install *
 
-ENTRYPOINT ["/entrypoint"]
+ENTRYPOINT ["gunicorn", "projects.app:app", "--workers", "3", "--bind", "0.0.0.0:8000"]
 
