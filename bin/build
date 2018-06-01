@@ -12,9 +12,9 @@ docker run \
 
 docker build \
   -f bin/Dockerfile \
-  -t jdgillespie91/projects:$(git rev-parse --short=8 HEAD) \
+  -t jdgillespie91/projects:$(git rev-parse --short=7 HEAD) \
   .
 
 docker login
-docker push jdgillespie91/projects:$(git rev-parse --short=8 HEAD)
+docker push jdgillespie91/projects:$(git rev-parse --short=7 HEAD)
 
