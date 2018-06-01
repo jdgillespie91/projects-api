@@ -1,0 +1,13 @@
+#!/bin/bash
+
+set -e
+set -x
+
+docker run \
+  -p 8000:8000 \
+  -v $PWD:/workspace \
+  -w /workspace \
+  -it \
+  python:3.6-alpine sh -c \
+  "pip install -e . && gunicorn projects.app:app --bind 0.0.0.0:8000 --reload"
+

@@ -42,7 +42,7 @@ class HealthcheckResource(object):
         version = __version__
 
         resp.append_header('Version', f'{env}-{version}')
-        resp.body = json.dumps('Hello, world!')
+        resp.body = json.dumps('Hello, world!') + '\n'
 
 
 app = falcon.API(middleware=[cors.middleware])
