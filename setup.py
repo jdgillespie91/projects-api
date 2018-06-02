@@ -18,10 +18,12 @@ setup(
         'falcon',
         'falcon-cors',
         'gunicorn',
+        'marshmallow>=3.0.0b11',
     ],
     extras_require={
         'dev': [
-            'mypy'
+            'mypy',
+            'pytest',
         ]
     }
 )

@@ -4,10 +4,9 @@ set -e
 set -x
 
 docker run \
-  -p 8000:8000 \
   -v $PWD:/workspace \
   -w /workspace \
   -it \
-  python:3.6 sh -c \
-  "pip install -e .[dev] && mypy --strict projects"
+  python:3.6-alpine sh -c \
+  "apk update && apk add build-base && pip install -e .[dev] && pytest && mypy --strict projects"
 
