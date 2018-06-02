@@ -19,4 +19,9 @@ setup(
         'falcon-cors',
         'gunicorn',
     ],
+    extras_require={
+        'dev': [
+            'mypy'
+        ]
+    }
 )

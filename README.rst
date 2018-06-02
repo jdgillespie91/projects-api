@@ -24,8 +24,17 @@ Start the application in development mode with
     $ curl localhost:8000
     "Hello, world!"
 
+Testing
+~~~~~~~
+
+Run the test suite with
+
+.. code-block:: bash
+
+    $ ./bin/test
+
 Deployment
-----------
+~~~~~~~~~~
 
 Prepare a release with
 

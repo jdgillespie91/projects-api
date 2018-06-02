@@ -1,0 +1,13 @@
+#!/bin/bash
+
+set -e
+set -x
+
+docker run \
+  -p 8000:8000 \
+  -v $PWD:/workspace \
+  -w /workspace \
+  -it \
+  python:3.6 sh -c \
+  "pip install -e .[dev] && mypy --strict projects"
+
