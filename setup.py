@@ -19,6 +19,7 @@ setup(
         'falcon-cors',
         'gunicorn',
         'marshmallow>=3.0.0b11',
+        'pymongo',
     ],
     extras_require={
         'dev': [

@@ -3,10 +3,19 @@
 set -e
 set -x
 
+docker stop mongo || true
+docker rm mongo || true
 docker run \
+  -d \
+  --name mongo \
+  --network projects \
+  --rm \
+  mongo:3.6
+docker run \
+  -it \
+  --network projects \
   -v $PWD:/workspace \
   -w /workspace \
-  -it \
   python:3.6-alpine sh -c \
   "apk update && apk add build-base && pip install -e .[dev] && pytest && mypy --strict projects"
 
