@@ -5,11 +5,11 @@ set -x
 
 docker network create projects || true
 docker run \
+  -it \
   --network projects \
   -p 8000:8000 \
   -v $PWD:/workspace \
   -w /workspace \
-  -it \
   python:3.6-alpine sh -c \
-  "pip install -e . && gunicorn projects.app:app --bind 0.0.0.0:8000 --reload"
+  "pip install -e . && gunicorn projects.resources.app:app --bind 0.0.0.0:8000 --reload"
 
